@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+  <h1 id="header" style="text-align:center;"></h1>
+  <canvas id="canvas" width="800" height="650" style="display:block;margin:auto;"></canvas>
+  <script src="./movingObject.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./asteroid.js"></script>
+  <script src="./game.js"></script>
+  <script src="./gameView.js"></script>
+  <script src="./ship.js"></script>
+  <script src="./keymaster-master/keymaster.js"></script>
+  <script src="./bullet.js"></script>
+
+  <script>
+    var testAsteroid = new Asteroids.Asteroid([150, 150]);
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var testView = new Asteroids.GameView(context);
+    testView.start();
+
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      var keyCode = evt.keyCode;
+      if (keyCode >= 37 && keyCode <= 40) {
+        return false;
+      }
+    };
+  </script>
+</body>
